@@ -1,7 +1,7 @@
 {
 	"id": "note-encryption-plugin",
 	"name": "Note Encryption",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"minAppVersion": "0.12.0",
 	"description": "This plugin encrypts / decrypts the current note line by line. PBKDF2 is used to generate key based on user entered password, and AES-256-GCM is used to encrypted on the contents and provides integrity check.",
 	"author": "Likely Lee",
