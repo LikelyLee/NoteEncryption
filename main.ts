@@ -1,7 +1,7 @@
-import { App, Editor, FileSystemAdapter, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Setting } from 'obsidian';
+import { App, MarkdownView, Modal, Notice, Plugin, PluginSettingTab, Setting } from 'obsidian';
 import * as crypto from 'crypto';
 
-const pwWrong : string = '%%PASSWORD_MISMATCH%%';
+const pwWrong = '%%PASSWORD_MISMATCH%%';
 
 const decode = (str: string):string => Buffer.from(str, 'base64').toString('binary');
 const encode = (str: string):string => Buffer.from(str, 'binary').toString('base64');
@@ -219,7 +219,7 @@ export default class ExptoHexoPlugin extends Plugin {
 			else {
 				// show the dialog to ask user to enter password
 				console.log('Use the password entered in the dialog');
-				let inputPW = '';
+				const inputPW = '';
 				new NoteEncryptionModal(this.app, (inputPW) => {
 					new Notice(`The entered password is: ${inputPW}`);
 
@@ -280,7 +280,7 @@ class ExptoHexoSettingTab extends PluginSettingTab {
 
 		new Setting(containerEl)
 			.setName("Persistent Password")
-			.setDesc('You can set and use the password above if \"Persistent Password\" is enabled. NOTE that if the password is set here, it will stored with the plugin, where other malicious app or plugins may access to it.')
+			.setDesc('You can set and use the password above if "Persistent Password" is enabled. NOTE that if the password is set here, it will stored with the plugin, where other malicious app or plugins may access to it.')
 			.addToggle(show => show
 				.setValue(this.plugin.settings.persistent)
 				.onChange((value) => {
@@ -353,7 +353,7 @@ export class NoteEncryptionModal extends Modal {
 	}		
 
 	onClose() {
-		let { contentEl } = this;
+		const { contentEl } = this;
 		contentEl.empty();
 	}
 }
