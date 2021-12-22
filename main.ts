@@ -237,7 +237,9 @@ export default class ExptoHexoPlugin extends Plugin {
 	}
 
 	onunload() {
-
+		if (!this.settings.persistent) {
+			this.settings.password = '';
+		}
 	}
 
 	async loadSettings() {
@@ -288,6 +290,7 @@ class ExptoHexoSettingTab extends PluginSettingTab {
 				}
 				else {
 					this.plugin.settings.persistent = false;
+					this.plugin.settings.password = '';
 					console.log('Persistent Password is disabled.');
 				}
 				this.plugin.saveSettings();
